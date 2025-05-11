@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+  <textarea name="user_input" placeholder="문장을 입력하세요..." required>{{ request.form.get('user_input', '') }}</textarea>
+  <button type="submit">Translate 🚀</button>
+</form>
+
+{% if result %}
+  <div class="card-wrapper">
+    <div class="card input-card">
+      <h2>🗣️ Input</h2>
+      <p>{{ request.form.get('user_input') }}</p>
+    </div>
+    <div class="card emoji-card">
+      <h2>🔤 Emoji </h2>
+      <p class="emoji">{{ result }}</p>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
